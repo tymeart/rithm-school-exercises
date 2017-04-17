@@ -1,5 +1,6 @@
-These are my solutions to the exercises in [Rithm School's free online courses](https://www.rithmschool.com/courses) as well as the example apps written while following the lessons.
+These are my solutions to the exercises in [Rithm School's free online courses](https://www.rithmschool.com/courses) as well as the example appsd out t written while following the lessons.
 
 Modules I've worked through:
 - Node and Express.js Fundamentals
-  - Node.js and NPM Fundamentals
+  - Introduction to Node.js and NPM
+  - Introduction to Express.js
