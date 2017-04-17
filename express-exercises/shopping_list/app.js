@@ -7,7 +7,7 @@ app.set('view engine', 'pug');
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', function(req, res){
-  res.render('index', {list});
+  res.render('search', {list});
 });
 
 app.get('/search', function(req, res){
