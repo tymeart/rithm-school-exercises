@@ -8,21 +8,21 @@ router.get('/users', function(req, res, next) {
   res.render('index', {users});
 });
 
-router.get('/users/new', function(req, res, next) {
+router.get('/new', function(req, res, next) {
   res.render('new');
 });
 
-router.get('/users/:id', function(req, res, next) {
+router.get('/:id', function(req, res, next) {
   var user = users.find(val => val.id === Number(req.params.id));
   res.render('show', {user});
 });
 
-router.get('/users/:id/edit', function(req, res, next) {
+router.get('/:id/edit', function(req, res, next) {
   var user = users.find(val => val.id === Number(req.params.id));
   res.render('edit', {user});
 });
 
-router.post('/users', function(req, res, next) {
+router.post('/', function(req, res, next) {
   users.push({
     name: req.body.name,
     id: ++id
@@ -30,14 +30,14 @@ router.post('/users', function(req, res, next) {
   res.redirect('/users');
 });
 
-router.patch('/users/:id', function(req, res, next) {
+router.patch('/:id', function(req, res, next) {
   var user = users.find(val => val.id === Number(req.params.id);
   user.name = req.body.name;
   res.redirect('/users');
   });
 });
 
-router.delete('/users/:id', function(req, res, next) {
+router.delete('/:id', function(req, res, next) {
   var userIndex = users.findIndex(val => val.id === Number(req.params.id));
   users.splice(userIndex, 1);
   res.redirect('/users');

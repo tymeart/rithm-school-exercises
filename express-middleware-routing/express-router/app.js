@@ -11,7 +11,7 @@ app.use(express.static(__dirname + '/public'));
 app.use(morgan('tiny'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride('_method'));
-app.use(userRoutes);
+app.use('/users', userRoutes);
 
 app.get('/', function(req, res, next) {
   res.redirect('/users');
