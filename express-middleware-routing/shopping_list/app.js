@@ -6,7 +6,7 @@ const itemRoutes = require('./routes/items');
 
 app.set('view engine', 'pug');
 app.use(express.static(__dirname + '/public'));
-app.use(bodyParser.urlencoded(extended: true));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride('_method'));
 app.use('/items', itemRoutes);
 
