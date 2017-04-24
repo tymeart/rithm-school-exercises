@@ -1,5 +1,5 @@
-h2 Edit item #{item.id}
-form(action=`/${item.id}/edit?_method=PATCH` method="POST")
+h2 Edit item #{item}
+form(action=`/${item}/edit?_method=PATCH` method="POST")
   label(for="new-item") Change to:
   input(type="text" name="new-item")
-  input(type="submit" value="Edit item")
+  input(type="submit" value="Submit")
