@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-var items = ['apples', 'grapes', 'tissue'];
+var items = [];
 var id = 1;
 
 router.get('/', function(req, res, next) {
