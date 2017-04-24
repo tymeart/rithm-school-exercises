@@ -21,16 +21,25 @@ router.get('/:id/edit', function(req, res, next) {
   res.render('edit', {item});
 });
 
-// router.post('/', function(req, res, next) {
-//
-// });
-//
-// router.patch('/:id/edit', function(req, res, next) {
-//
-// });
-//
-// router.delete('/:id', function(req, res, next) {
-//
-// });
+router.post('/', function(req, res, next) {
+  items.push({
+    name: req.body.name,
+    id
+  });
+  id++;
+  res.redirect('/');
+});
+
+router.patch('/:id/edit', function(req, res, next) {
+  var item = items.find(val => val.id === Number(req.params.id));
+  item.name = req.body.name;
+  res.redirect('/');
+});
+
+router.delete('/:id', function(req, res, next) {
+  var itemIndex = items.findIndex(val => val.id === Number(req.params.id));
+  items.splice(itemIndex, 1);
+  res.redirect('/');
+});
 
 module.exports = router;
