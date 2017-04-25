@@ -23,7 +23,7 @@ router.get('/:id/edit', function(req, res, next) {
 
 router.post('/', function(req, res, next) {
   items.push({
-    name: req.body.name,
+    name: req.body.addedItem,
     id
   });
   id++;
