@@ -52,9 +52,9 @@ router.patch('/:id/edit', function(req, res, next) {
 router.delete('/:id', function(req, res, next) {
   return new Promise((resolve, reject) => {
     var itemIndex = items.findIndex(val => val.id === Number(req.params.id));
-    resolve(itemIndex);
-  }).then((itemIndex) => {
     items.splice(itemIndex, 1);
+    resolve(itemIndex);
+  }).then(() => {
     res.redirect('/');
   });
 });
