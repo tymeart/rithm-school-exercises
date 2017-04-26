@@ -35,15 +35,23 @@ router.post('/', function(req, res, next) {
 });
 
 router.patch('/:id/edit', function(req, res, next) {
-  var item = items.find(val => val.id === Number(req.params.id));
-  item.name = req.body.name;
-  res.redirect('/');
+  return new Promise((resolve, reject) => {
+    var item = items.find(val => val.id === Number(req.params.id));
+    item.name = req.body.newItem;
+    resolve(item);
+  }).then(() => {
+    res.redirect('/');
+  });
 });
 
 router.delete('/:id', function(req, res, next) {
-  var itemIndex = items.findIndex(val => val.id === Number(req.params.id));
-  items.splice(itemIndex, 1);
-  res.redirect('/');
+  return new Promise((resolve, reject) => {
+    var itemIndex = items.findIndex(val => val.id === Number(req.params.id));
+    resolve(itemIndex);
+  }).then((itemIndex) => {
+    items.splice(itemIndex, 1);
+    res.redirect('/');
+  });
 });
 
 module.exports = router;
