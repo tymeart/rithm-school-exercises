@@ -1,5 +1,5 @@
-h2 Edit item #{item.name}
+h2 Edit #{item.name}
 form(action=`/items/${item.id}/edit?_method=PATCH` method="POST")
-  label(for="new-item") Change to:
-  input(type="text" name="new-item")
+  label(for="newItem") Change to:
+  input(type="text" name="newItem")
   input(type="submit" value="Submit")
