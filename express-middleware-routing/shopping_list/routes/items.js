@@ -13,7 +13,12 @@ router.get('/new', function(req, res, next) {
 });
 
 router.get('/:id', function(req, res, next) {
-  res.send(req.params.id);
+  return new Promise((resolve, reject) => {
+    var item = items.find(val => val.id === Number(req.params.id));
+    resolve(item);
+  }).then(item => {
+    res.render('show', {item});
+  })
 });
 
 router.get('/:id/edit', function(req, res, next) {
