@@ -4,3 +4,4 @@ Modules I've worked through:
 - Node and Express.js Fundamentals
   - Introduction to Node.js and NPM
   - Introduction to Express.js
+  - Express Middleware and Routing
