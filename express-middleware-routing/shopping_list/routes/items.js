@@ -17,8 +17,12 @@ router.get('/:id', function(req, res, next) {
 });
 
 router.get('/:id/edit', function(req, res, next) {
-  var item = items.find(val => val.id === Number(req.params.id));
-  res.render('edit', {item});
+  return new Promise((resolve, reject) => {
+    var item = items.find(val => val.id === Number(req.params.id));
+    resolve(item);
+  }).then(item => {
+    res.render('edit', {item});
+  });
 });
 
 router.post('/', function(req, res, next) {
