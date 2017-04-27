@@ -3,7 +3,7 @@ const app = express();
 const methodOverride = require('method-override');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
-const petsRoutes = require('../routes/pets');
+const petsRoutes = require('./routes/pets');
 
 app.set('view engine', 'pug');
 app.use(express.static(__dirname + '/public'));
