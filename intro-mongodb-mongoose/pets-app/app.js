@@ -3,6 +3,7 @@ const app = express();
 const methodOverride = require('method-override');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
+const ownersRoutes = require('./routes/owners');
 const petsRoutes = require('./routes/pets');
 
 app.set('view engine', 'pug');
@@ -11,10 +12,11 @@ app.use(morgan('tiny'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride('_method'));
 
-app.use('/pets', petsRoutes);
+app.use('/owners', ownersRoutes);
+app.use('/owners/:owner_id/pets', petsRoutes);
 
 app.get('/', function(req, res, next) {
-  res.redirect('/pets');
+  res.redirect('/owners');
 });
 
 app.use(function(req, res, next) {
