@@ -24,9 +24,17 @@ router.get('/:id/edit', function(req, res, next) {
   });
 });
 
+// route: /owners/:owner_id/pets
 router.post('/', function(req, res, next) {
-  db.Pet.create(req.body).then(function(pet) {
-    res.redirect('/users');
+  var fido = new Pet(req.body);
+  fido.owner = req.params.owner_id;
+  fido.save().then(function(pet) {
+    db.Owner.findById(req.params.owner_id).then(function(owner) {
+      owner.pets.push(fido);
+      owner.save().then(function(owner) {
+        res.redirect(`/owners/${owner.id}/pets`);
+      });
+    });
   });
 });
 
