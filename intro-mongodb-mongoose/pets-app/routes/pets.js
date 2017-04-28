@@ -2,10 +2,14 @@ const express = require('express');
 const router = express.Router({mergeParams: true});
 const db = require('../models');
 
+// route: /owners/:owner_id/pets
 router.get('/', function(req, res, next) {
-  db.Pet.find().then(function(pets) {
-    res.render('index', {pets});
-  });
+  db.Owner.findById(req.params.owner_id)
+    .populate('pets')
+    .exec()
+    .then(function(owner) {
+      res.render('pets/index', {owner});
+    });
 });
 
 router.get('/new', function(req, res, next) {
